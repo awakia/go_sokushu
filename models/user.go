@@ -8,11 +8,15 @@ type User struct {
 	Age  int
 }
 
-func main() {
-	user := User{
+// Constructor
+func NewUser(name string, age int) User {
+	return User{
 		1,
-		"@awakia",
-		29,
+		name,
+		age,
 	}
-	fmt.Printf("user: %v\n", user)
+}
+
+func main() {
+	fmt.Printf("user: %v\n", NewUser("@awakia", 29))
 }
