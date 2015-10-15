@@ -12,19 +12,19 @@ type User struct {
 }
 
 // Constructor
-func NewUser(name string, age int) User {
-	return User{
+func NewUser(name string, age int) *User {
+	return &User{
 		Name: name,
 		Age:  age,
 	}
 }
 
-func (u User) String() string {
+func (u *User) String() string {
 	return u.Name + "(" + strconv.Itoa(u.Age) + ")"
 }
 
 func main() {
 	user := NewUser("@awakia", 29)
-	fmt.Printf("user: %v\n", user)
-
+	user2 := user
+	fmt.Printf("user: %v", user2.Name)
 }
