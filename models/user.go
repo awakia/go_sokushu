@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type User struct {
 	ID   int
@@ -16,8 +19,12 @@ func NewUser(name string, age int) User {
 	}
 }
 
+func (u User) String() string {
+	return u.Name + "(" + strconv.Itoa(u.Age) + ")"
+}
+
 func main() {
 	user := NewUser("@awakia", 29)
-	fmt.Printf("user: %v\n", user.ID)
+	fmt.Printf("user: %v\n", user)
 
 }
