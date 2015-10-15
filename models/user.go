@@ -11,12 +11,13 @@ type User struct {
 // Constructor
 func NewUser(name string, age int) User {
 	return User{
-		1,
-		name,
-		age,
+		Name: name,
+		Age:  age,
 	}
 }
 
 func main() {
-	fmt.Printf("user: %v\n", NewUser("@awakia", 29))
+	user := NewUser("@awakia", 29)
+	fmt.Printf("user: %v\n", user.ID)
+
 }
