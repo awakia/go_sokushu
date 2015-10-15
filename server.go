@@ -11,7 +11,7 @@ import (
 func main() {
 	ren := render.New()
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/create", func(w http.ResponseWriter, r *http.Request) {
 		ren.JSON(w, http.StatusOK, models.NewUser("Naoyoshi Aikawa", 29))
 	})
 	n := neg.Classic()

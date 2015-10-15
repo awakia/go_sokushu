@@ -1,6 +1,10 @@
 package models
 
-import "strconv"
+import (
+	"strconv"
+
+	"github.com/awakia/go_old/db"
+)
 
 type User struct {
 	ID   int    `json:"id"`
@@ -10,10 +14,12 @@ type User struct {
 
 // Constructor
 func NewUser(name string, age int) *User {
-	return &User{
+	user := &User{
 		Name: name,
 		Age:  age,
 	}
+	db.Get().Create(user)
+	return user
 }
 
 func (u *User) String() string {
