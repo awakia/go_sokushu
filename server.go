@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	neg "github.com/codegangsta/negroni"
 )
 
 func main() {
@@ -10,5 +12,7 @@ func main() {
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, world!")
 	})
-	http.ListenAndServe(":8080", mux)
+	n := neg.Classic()
+	n.UseHandler(mux)
+	n.Run(":8080")
 }
