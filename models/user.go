@@ -22,6 +22,18 @@ func NewUser(name string, age int) *User {
 	return user
 }
 
+func GetUser(id int) *User {
+	var user *User
+	db.Get().Where("id = ?", id).First(user)
+	return user
+}
+
+func AllUsers() []*User {
+	var users []*User
+	db.Get().Find(&users)
+	return users
+}
+
 func (u *User) String() string {
 	return u.Name + "(" + strconv.Itoa(u.Age) + ")"
 }
